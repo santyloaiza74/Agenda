@@ -1,17 +1,17 @@
-const {dbUser, dbPassword, dbHost, dbName, dbPort} = require('./../config/config')
+const { dbUser, dbPassword, dbHost, dbPort, dbName } = require('../config/config')
 
 const USER = encodeURIComponent(dbUser)
-const  PASSWORD = encodeURI(dbPassword)
+const PASSWORD = encodeURI(dbPassword)
+
 const URI = `mysql://${USER}:${PASSWORD}@${dbHost}:${dbPort}/${dbName}`
 
 module.exports = {
-    development:{
+    development: {
         url: URI,
         dialect: 'mysql'
     },
-
-    production:{
+    production: {
         url: URI,
-        dialect: 'mysql'
-    }
+        dialect: 'mysql'
+    }
 }
