@@ -5,5 +5,6 @@
 # Hash, encriptar la contraseñas en doble sentido
 # const Sequelize = require("sequelize")
 # consst sequelize = new Sequelize("...")
-# npx seqquelize-cli migrations:run
-# npx seqquelize-cli db:migrate
+# npx sequelize-cli migrations:run
+# npx sequelize-cli db:migrate
+# npm run migrations:generate --name
