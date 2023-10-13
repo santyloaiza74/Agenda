@@ -12,7 +12,6 @@ router.get('/', async (req, res)=>{
 
 router.post('/',async (req,res)=>{
     const {name,email,password,status} = req.body
-    console.log(name,email,password,status)
     const user = await controller.create(name,email,password,status)
     res.status(201).json({user})
 })
