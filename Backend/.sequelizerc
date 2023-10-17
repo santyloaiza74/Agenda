@@ -1,0 +1,8 @@
+//rutas donde se van almacenar los modelos, migraciones y seeders
+//y el archivo config que trae la configuracion de la carpeta database 
+module.exports = {
+    config: './src/database/config.js',
+    'models-path': './src/database/models',
+    'migrations-path': './src/database/migrations',
+    'seeders-path':'./src/database/seeders',
+}
