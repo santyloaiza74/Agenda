@@ -14,7 +14,9 @@ class UserService {
         return user
     }
     async delete(id){
-        const user = await this.model.destroy({where:{id:id}})
+        const user =  this.getOne(id)
+        if(!user)return null
+        await this.model.destroy({where:{id:id}})
         return user
     }
     async Modificar(id,name,email,password,status){
@@ -24,6 +26,14 @@ class UserService {
     async getOne(id){
         const user = await this.model.findByPk(id)
         return user
+    }
+    async update(id, values){
+        const user= await this.model.findByPk(id)
+        if(!user){
+            return null
+        }
+        const updateUser=await user.update(values)
+        return updateUser
     }
 }
 
