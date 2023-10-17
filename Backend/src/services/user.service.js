@@ -17,6 +17,14 @@ class UserService {
         const user = await this.model.destroy({where:{id:id}})
         return user
     }
+    async Modificar(id,name,email,password,status){
+        const user = await this.model.update({name,email,password,status},{where:{id:id}})
+        return user
+    }
+    async getOne(id){
+        const user = await this.model.findByPk(id)
+        return user
+    }
 }
 
 module.exports = UserService

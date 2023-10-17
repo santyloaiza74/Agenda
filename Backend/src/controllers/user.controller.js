@@ -17,6 +17,14 @@ class UserController{
         const user = await this.service.delete(id)
         return user
     }
+    async Modificar(id,name,email,password,status){
+        const user= await this.service.Modificar(id,name,email,password,status)
+        return user
+    }
+    async getOne(id){
+        const user=await this.service.getOne(id)
+        return user
+    }
 }
 
 module.exports = UserController
