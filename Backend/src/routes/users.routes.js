@@ -16,4 +16,10 @@ router.post('/',async (req,res)=>{
     res.status(201).json({user})
 })
 
+router.delete('/',async (req,res)=>{
+    const {id}= req.body
+    const user= await controller.delete(id)
+    res.status(201).json({user})
+})
+
 module.exports = router

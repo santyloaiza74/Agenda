@@ -13,6 +13,10 @@ class UserController{
         const user = await this.service.create(name,email,password,status)
         return user
     }
+    async delete(id){
+        const user = await this.service.delete(id)
+        return user
+    }
 }
 
 module.exports = UserController
