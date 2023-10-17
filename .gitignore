@@ -1,3 +1,5 @@
-/Backend/node_modules
-.gitignore
-.git
+node_modules
+gitignore
+git
+asd.js
+env
