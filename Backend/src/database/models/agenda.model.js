@@ -9,7 +9,7 @@ const AgendaSchema={
         primaryKey: true
     },
     fecha:{
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false
     },
     hora_inicio:{
