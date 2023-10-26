@@ -1,2 +1,5 @@
 Backend/node_modules
 Backend/.env
+Backend/src/controllers/agenda.controller.js
+Backend/src/services/agenda.service.js
+Backend/src/routes/agendas.routes.js
