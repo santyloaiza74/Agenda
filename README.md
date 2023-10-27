@@ -8,3 +8,4 @@
 # npx sequelize-cli migrations:run
 # npx sequelize-cli db:migrate
 # npm run migrations:generate --name
+# npm create vite@latest
