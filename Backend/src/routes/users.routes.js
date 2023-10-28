@@ -1,6 +1,5 @@
 const {Router} = require('express')
 const UserController = require('../controllers/user.controller')
-const { Association } = require('sequelize')
 
 const router = Router()
 
