@@ -1,11 +1,16 @@
 import React from 'react'
-import {} from 'react-bootstrap'
+import { Container,Row,Col } from 'react-bootstrap'
+import List from '../components/users/List'
 
 function Users(){
     return(
-        <div>
-
-        </div>
+        <Container>
+            <Row>
+                <Col xs='12'>
+                    <List></List>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 
