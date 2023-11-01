@@ -1,34 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React from 'react'
+import {BrowserRouter,Route,Routes} from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Login from './pages/Login'
 
-const Form = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Nombre:", name);
-    console.log("Email:", email);
-  };
-
+function App(){
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Nombre"
-        value={name}
-        onChange={(event) => setName(event.target.value)}
-      />
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
-      />
-      <button type="submit">Enviar</button>
-    </form>
-  );
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' Component={Login}></Route>
+    </Routes>
+  </BrowserRouter>
+  )
+  
 };
 
-export default Form;
+export default App
 
 
