@@ -1,12 +1,8 @@
 import React,{useState,useEffect} from 'react'
-import {} from ''
+import {getAllUsers} from '../services/users/getAll.js'
 
-function List() {
-  return (
-    <div>
-        
-    </div>
-  )
+function UseUsers(){
+  const [users,setUsers]= useState([])
+  const [loading,setLoading]= useState(false)
+  
 }
-
-export default List
