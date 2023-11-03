@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import getAllAreas from '../services/areas/getAll'
 
 function UseAreas(){
-  const [areas,setUsers]= useState([])
+  const [areas,setAreas]= useState([])
   const [loading,setLoading]= useState(false)
   useEffect(() => {
     setLoading(true)
@@ -10,7 +10,7 @@ function UseAreas(){
       const {areas}= data
       console.log(data)
       if(areas){
-        setUsers(areas)
+        setAreas(areas)
       }
     })
     .finally(()=>{
