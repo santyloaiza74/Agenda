@@ -3,6 +3,7 @@ import {BrowserRouter,Route,Routes} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Login from './pages/Login'
 import Users from './pages/Users'
+import Areas from './pages/Areas'
 
 function App(){
   return (
@@ -10,6 +11,7 @@ function App(){
     <Routes>
       <Route path='/' Component={Login}></Route>
       <Route path='/users' Component={Users}></Route>
+      <Route path='/areas' Component={Areas}></Route>
     </Routes>
   </BrowserRouter>
   )

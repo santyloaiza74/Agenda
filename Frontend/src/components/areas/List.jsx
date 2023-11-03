@@ -1,23 +1,25 @@
 import React from 'react'
 import { Spinner, Table } from 'react-bootstrap'
-import UseUsers from '../../hooks/UseUsers'
+import UseAreas from '../../hooks/UseAreas'
 
 function List() {
-    const { users, loading } = UseUsers()
+    const { areas, loading } = UseAreas()
     if (loading) return <Spinner />
     return (
         <Table striped bordered hover>
             <thead>
+                <th>Code</th>
                 <th>Name</th>
-                <th>Email</th>
+                <th>Observations</th>
                 <th>Status</th>
             </thead>
             <tbody>
-                {users.map(({ id, name, email, status }) => (
-                    <tr key={`user-row-${id}`}>
+                {areas.map(({ id, code, name, observations, status }) => (
+                    <tr key={`area-row-${id}`}>
+                        <td>{code}</td>
                         <td>{name}</td>
-                        <td>{email}</td>
-                        <td>{status ? 'Active': 'Inactive'}</td>
+                        <td>{observations}</td>
+                        <td>{status ? 'Active' : 'Inactive'}</td>
                     </tr>
                 ))}
             </tbody>
