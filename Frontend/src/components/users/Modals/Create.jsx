@@ -36,7 +36,9 @@ function Create({show, onClose}){
     return(
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-
+                <Modal.Title>
+                    Add new User
+                </Modal.Title>
             </Modal.Header>
         </Modal>
     )
