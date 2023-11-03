@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { Modal } from 'react-bootstrap'
+import { Modal,Form, Button } from 'react-bootstrap'
 import createUser from '../../../services/users/create'
 
 function Create({show, onClose}){
@@ -40,6 +40,30 @@ function Create({show, onClose}){
                     Add new User
                 </Modal.Title>
             </Modal.Header>
+            <Modal.Body>
+                <Form>
+                    <Form.Group>
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type='text' placeholder='User name' name='name' onChange={handleChange} value={user.name}></Form.Control>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Email</Form.Label>
+                        <Form.Control type='email' placeholder='User@gmail.com' name='email' onChange={handleChange} value={user.email}></Form.Control>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type='password' placeholder='*******' name='password' onChange={handleChange} value={user.password}></Form.Control>
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Status</Form.Label>
+                        <Form.Check type='checkbox' name='status' label='Activo' onChange={handleChangeCheckBox} checked={user.status}></Form.Check>
+                    </Form.Group>
+                </Form>
+            </Modal.Body>
+            <Modal.Footer>
+                <Button variant='secondary' onClick={handleClose}>Close</Button>
+                <Button variant='primary' onClick={handleSubmit}>Save</Button>
+            </Modal.Footer>
         </Modal>
     )
 }
