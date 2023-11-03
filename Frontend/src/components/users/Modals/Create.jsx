@@ -15,6 +15,8 @@ function Create({show, onClose}){
     const handleSubmit=async()=>{
         try{
             const response = await createUser(user)
+            handleClose()
+            location.reload()
             console.log(response)
         }catch(error){
             console.log(error)
