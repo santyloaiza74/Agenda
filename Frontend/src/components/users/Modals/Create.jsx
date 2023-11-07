@@ -1,13 +1,14 @@
 import React,{useState,useEffect} from 'react'
-import { Modal,Form, Button } from 'react-bootstrap'
+import { Modal,Form, Button, Alert } from 'react-bootstrap'
 import createUser from '../../../services/users/create'
 
 function Create({show, onClose}){
+    const [showAlert, setShowAlert]=useState(false)
     const [user, setUser]= useState({
         name: '',
         email: '',
         password: '',
-        status: true
+        status: true,
     })
     const handleClose=()=>{
         onClose(user)
@@ -15,9 +16,17 @@ function Create({show, onClose}){
     const handleSubmit=async()=>{
         try{
             const response = await createUser(user)
-            handleClose()
-            location.reload()
-            console.log(response)
+            setShowAlert(true)
+            setUser({
+                name: '',
+                email: '',
+                password: '',
+                status: true,
+            })
+            setTimeout(()=>{
+                setShowAlert(false)
+                location.reload()
+            },2500)
         }catch(error){
             console.log(error)
         }
@@ -61,6 +70,7 @@ function Create({show, onClose}){
                         <Form.Check type='checkbox' name='status' label='Activo' onChange={handleChangeCheckBox} checked={user.status}></Form.Check>
                     </Form.Group>
                 </Form>
+                {showAlert && <Alert variant='success'>User created!</Alert>}
             </Modal.Body>
             <Modal.Footer>
                 <Button variant='secondary' onClick={handleClose}>Close</Button>
