@@ -12,7 +12,7 @@ router.get('/', async (req, res)=>{
 })
 router.post('/', async (req, res)=>{
     const {code, name, observations, status} = req.body
-    const area = await controller.create({code, name, observations, status})
+    const area = await controller.create(code, name, observations, status)
     res.status(201).json({area})
 })
 router.get('/:id', async (req, res)=>{
