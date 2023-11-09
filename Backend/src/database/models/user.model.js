@@ -29,11 +29,21 @@ const UserSchema = {
         type:
             DataTypes.BOOLEAN,
         defaultValue: false
+    },
+    areaid:{
+        field: 'area_id',
+        type: DataTypes.INTEGER,
+        references:{
+            model: 'area',
+            key: 'id'
+        }
     }
 }
 
 class User extends Model {
-    static associate(models) {}
+    static associate(models) {
+        this.belongsTo(models.Area,{as:'area',foreignKey: 'areaid'})
+    }
 
     static config(sequelize) {
         return { sequelize, tableName: USER_TABLE, modelName: 'User', timestamps: false }

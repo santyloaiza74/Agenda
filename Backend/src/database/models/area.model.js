@@ -36,7 +36,9 @@ const AreaSchema=
     }
 }
 class Area extends Model {
-    static associate(models) { }
+    static associate(models) {
+        this.hasOne(models.User,{as: 'user', foreignKey: ''})
+    }
 
     static config(sequelize) {
         return { sequelize, tableName: AREA_TABLE, modelName: 'Area', timestamps: false }
