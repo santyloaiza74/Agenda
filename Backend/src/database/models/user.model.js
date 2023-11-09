@@ -41,7 +41,7 @@ const UserSchema = {
 
 class User extends Model {
     static associate(models) {
-        BelongsTo(models.Area,{as:'area',foreignKey:'areaid'})
+        this.belongsTo(models.Area,{as:'area',foreignKey:'areaid'})
     }
 
     static config(sequelize) {

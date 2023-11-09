@@ -37,7 +37,7 @@ const AreaSchema=
 }
 class Area extends Model {
     static associate(models) {
-        HasMany(models.User,{as: 'user'})
+        this.hasMany(models.User,{as: 'user'})
     }
 
     static config(sequelize) {
