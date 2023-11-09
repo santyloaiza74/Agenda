@@ -6,7 +6,7 @@ class UserService {
         this.model = models.User
     }
     async getAll(){
-        const users = await this.model.findAll({include: 'areas',attributes:['code','name']})
+        const users = await this.model.findAll({include: 'area'})
         return users
     }
     async create(name,email,password,status,areaId,area){
