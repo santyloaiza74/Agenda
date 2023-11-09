@@ -9,8 +9,8 @@ class UserController{
         const users = await this.service.getAll()
         return users
     }
-    async create(name,email,password,status){
-        const user = await this.service.create(name,email,password,status)
+    async create(name,email,password,status,areaId,area){
+        const user = await this.service.create(name,email,password,status,areaId,area)
         return user
     }
     async delete(id){
@@ -18,10 +18,6 @@ class UserController{
         if(!user){
             throw new Error('Usuario no encontrado')
         }
-        return user
-    }
-    async Modificar(id,name,email,password,status){
-        const user= await this.service.Modificar(id,name,email,password,status)
         return user
     }
     async getOne(id){

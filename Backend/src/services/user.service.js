@@ -6,25 +6,34 @@ class UserService {
         this.model = models.User
     }
     async getAll(){
-        const users = await this.model.findAll()
+        const users = await this.model.findAll({include: 'areas',attributes:['code','name']})
         return users
     }
-    async create(name,email,password,status){
-        const user = await this.model.create({name,email,password,status})
+    async create(name,email,password,status,areaId,area){
+        if(areaId && area){
+            throw new Error("fdgdfgdfgdfsgdfgdssdgdsfgfgd")
+        }
+        const values={
+            name,
+            email,
+            password,
+            status,
+            areaId,
+            area
+        }
+        if(areaId)values.areaId=areaId
+        if(area)values.area=area
+        const user = await this.model.create(values,{include:[{association:'area'}]})
         return user
     }
     async delete(id){
-        const user =  this.getOne(id)
+        const user = await getOne(id)
         if(!user)return null
-        await this.model.destroy({where:{id:id}})
-        return user
-    }
-    async Modificar(id,name,email,password,status){
-        const user = await this.model.update({name,email,password,status},{where:{id:id}})
-        return user
+        await user.destroy()
+        return user.id
     }
     async getOne(id){
-        const user = await this.model.findByPk(id)
+        const user = await this.model.findByPk(id,{include:'area'})
         return user
     }
     async update(id, values){

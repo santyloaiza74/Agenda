@@ -11,8 +11,8 @@ router.get('/', async (req, res)=>{
 })
 
 router.post('/',async (req,res)=>{
-    const {name,email,password,status} = req.body
-    const user = await controller.create(name,email,password,status)
+    const {name,email,password,status,areaId,area} = req.body
+    const user = await controller.create(name,email,password,status,areaId,area)
     res.status(201).json({user})
 })
 
@@ -35,7 +35,7 @@ router.delete('/:id',async (req,res)=>{
 
 router.put('/:id', async(req,res)=>{
     const {id}= req.params
-    const {email= '',name= '', status='', password=''} = req.body
+    const {email= '',name= '', status='', password='',areaId='',area=''} = req.body
     const values = {}
     if(email){
         values.email= email
@@ -49,6 +49,8 @@ router.put('/:id', async(req,res)=>{
     if(password){
         values.password=password
     }
+    if(areaId)values.areaId=areaId
+    if(area)values.area=area
     try{
         const user = await controller.update(id,values)
         res.status(200).json({user})
