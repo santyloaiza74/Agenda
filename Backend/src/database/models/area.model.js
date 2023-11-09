@@ -1,4 +1,4 @@
-const { DataTypes, Model } = require('sequelize')
+const { DataTypes, Model, HasMany } = require('sequelize')
 
 const AREA_TABLE = 'areas'
 
@@ -37,7 +37,7 @@ const AreaSchema=
 }
 class Area extends Model {
     static associate(models) {
-        this.hasMany(models.User,{as: 'users'})
+        HasMany(models.User,{as: 'user'})
     }
 
     static config(sequelize) {

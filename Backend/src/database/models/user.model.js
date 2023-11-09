@@ -1,5 +1,4 @@
-const { DataTypes, Model } = require('sequelize')
-
+const { DataTypes, Model, BelongsTo } = require('sequelize')
 const USER_TABLE = 'users'
 
 const UserSchema = {
@@ -42,7 +41,7 @@ const UserSchema = {
 
 class User extends Model {
     static associate(models) {
-        this.belongsTo(models.Area,{as:'area',foreignKey: 'areaid'})
+        BelongsTo(models.Area,{as:'area',foreignKey:'areaid'})
     }
 
     static config(sequelize) {
