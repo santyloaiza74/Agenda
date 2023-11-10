@@ -27,7 +27,7 @@ class UserService {
         return user
     }
     async delete(id){
-        const user = await getOne(id)
+        const user = await this.getOne(id)
         if(!user)return null
         await user.destroy()
         return user.id
