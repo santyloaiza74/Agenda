@@ -1,4 +1,4 @@
-const { DataTypes, Model, HasMany } = require('sequelize')
+const { DataTypes, Model} = require('sequelize')
 
 const AREA_TABLE = 'areas'
 
