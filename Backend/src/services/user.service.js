@@ -17,9 +17,7 @@ class UserService {
             name,
             email,
             password,
-            status,
-            areaId,
-            area
+            status
         }
         if(areaId)values.areaId=areaId
         if(area)values.area=area
