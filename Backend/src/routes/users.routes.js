@@ -35,7 +35,7 @@ router.delete('/:id',async (req,res)=>{
 
 router.put('/:id', async(req,res)=>{
     const {id}= req.params
-    const {email= '',name= '', status='', password='',areaId='',area=''} = req.body
+    const {email= '',name= '', status='', password='',areaId= 0} = req.body
     const values = {}
     if(email){
         values.email= email
@@ -43,14 +43,13 @@ router.put('/:id', async(req,res)=>{
     if(name){
         values.name=name
     }
-    if(status){
+    if(typeof status== 'boolean'){
         values.status=status
     }
     if(password){
         values.password=password
     }
     if(areaId)values.areaId=areaId
-    if(area)values.area=area
     try{
         const user = await controller.update(id,values)
         res.status(200).json({user})
