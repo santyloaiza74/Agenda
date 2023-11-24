@@ -17,6 +17,12 @@ function UseUsers(){
       setLoading(false)
     })
   }, [])
-  return {users,loading}
+  const newUser=(user)=>{
+    setUsers([...users,user])
+  }
+  const deleteUser=(id)=>{
+    setUsers(users.filter((currentUser)=>currentUser.id != id))
+  }
+  return {users,loading,newUser,deleteUser}
 }
 export default UseUsers
