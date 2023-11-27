@@ -32,7 +32,7 @@ function List({ addUser, deletUser, onclickEdit, onclickDelte } = {
                         <td>{status ? 'Active' : 'Inactive'}</td>
                         <td><Button variant='primary'onClick={()=>onclickEdit(id)}>Edit</Button>
                         <a> </a>
-                        <Button variant='danger'onClick={()=>onclickDelte(id)}>Delete</Button>
+                        <Button variant='danger' onClick={()=>onclickDelte(id)}>Delete</Button>
                         </td>
                     </tr>
                 ))}
