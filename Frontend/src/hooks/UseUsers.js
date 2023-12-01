@@ -25,6 +25,7 @@ function UseUsers(){
   }
   const deleteUser=(id)=>{
     setUsers(users.filter((currentUser)=>currentUser.id != id))
+    console.log(id)
   }
   return {users,loading,newUser,deleteUser}
 }

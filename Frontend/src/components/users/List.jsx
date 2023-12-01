@@ -3,7 +3,7 @@ import { Spinner, Table,Button } from 'react-bootstrap'
 import UseUsers from '../../hooks/UseUsers'
 
 function List({ addUser, deletUser, onclickEdit, onclickDelte } = {
-    deletUser: 0,
+    deletUser:onclickDelte=(id) => { console.log(`Eliminando usuario con id: ${id}`);},
     addUser: { id: 0, name: '', email: '',password: '', status: false, areaid: 0 },
     onclickEdit: (id) => { },
     onclickDelte: (id) => { }
